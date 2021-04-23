@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+// import {getUser} from '@/api'
+
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
