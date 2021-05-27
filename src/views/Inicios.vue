@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>hola</h1>
+        <Nav />
         <Login />
     </div>
 </template>
@@ -8,9 +8,11 @@
 <script>
 
 import Login from "@/components/Login";
+import Nav from "@/components/Nav";
     export default {
        components: {
-        Login
+        Login,
+        Nav
     }
     }
 </script>

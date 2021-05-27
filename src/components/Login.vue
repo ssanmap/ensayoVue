@@ -1,13 +1,14 @@
-<template>
-    <div>
-        <body @mousemove="changeImage">
+<template class="todo bg-dark">
+    <div class="todo bg-dark">
+
+        <body @mousemove="changeImage" class="bg-dark">
             
        
     <div class="login">
         <img :src="src" id="monster" alt="">
         <form class="formulario">
             <label>Usuario</label>
-            <input type="text" id="input-usuario" @keyup="read" @focus="!seguirPunteroMouse" placeholder="seba.developer@gmail.com" autocomplete="off">
+            <input type="text" id="input-usuario" @keyup="read" @focus="parar" @blur="seguir" placeholder="seba.developer@gmail.com" autocomplete="off">
             <label>Contraseña</label>
             <input type="password" @focus="pass" @blur="nopas" id="input-clave" placeholder="*******">
             <button type="submit">Login</button>
@@ -19,10 +20,12 @@
 
 <script>
 
-          
 
     export default {
         name: 'Login',
+        components:{
+            // Nav
+        },
         methods: {
            
           changeImage(m){
@@ -80,6 +83,12 @@
             clearInterval(descubrirOjo);
         }
     }, 60);
+          },
+          parar(){
+              this.seguirPunteroMouse = false;
+          },
+           seguir(){
+              this.seguirPunteroMouse = true;
           }
 
         },
@@ -106,6 +115,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Bowlby One SC', cursive;
+    
+}
+.todo{
+     background-color: #000;
 }
 
 body{
@@ -118,6 +131,7 @@ body{
 .login{
     height: 550px;
     position: absolute;
+    left: 40%;
 }
 .formulario{
     width: 400px;
